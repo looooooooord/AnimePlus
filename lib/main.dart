@@ -25,8 +25,6 @@ void _configureApp() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key, this.initialBinding});
 
-  /// Allows integration tests to run the complete app with deterministic
-  /// local dependencies instead of external catalog services.
   final Bindings? initialBinding;
 
   @override

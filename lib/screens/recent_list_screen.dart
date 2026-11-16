@@ -47,23 +47,7 @@ class _RecentListScreenState extends State<RecentListScreen>
             separatorBuilder: (_, __) => const SizedBox(height: 10),
             itemBuilder: (context, index) {
               if (index == 0) {
-                return const Padding(
-                  padding: EdgeInsets.only(bottom: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('تابع من حيث توقفت',
-                          style: TextStyle(color: tkMutedText, fontSize: 13)),
-                      SizedBox(height: 4),
-                      Text('اسحب لليسار للإزالة',
-                          style: TextStyle(
-                            color: tkCoral,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w800,
-                          )),
-                    ],
-                  ),
-                );
+                return const SizedBox.shrink();
               }
               final item = recentWatchManager.animeList[index - 1];
               return Dismissible(
@@ -81,14 +65,7 @@ class _RecentListScreenState extends State<RecentListScreen>
                 ),
                 onDismissed: (_) async =>
                     await recentWatchManager.removeAnime(item.id),
-                child: RecentAnimeCard(
-                  id: item.id,
-                  currentEp: item.currentEp,
-                  epUrl: item.epUrl,
-                  animeUrl: item.animeUrl,
-                  name: item.name,
-                  imageUrl: item.imageUrl,
-                ),
+                child: RecentAnimeCard(currentEp: item.currentEp, name: item.name),
               );
             },
           );
@@ -109,12 +86,6 @@ class _RecentListScreenState extends State<RecentListScreen>
             child: const Icon(Icons.playlist_add_rounded,
                 color: tkCoral, size: 32),
           ),
-          const SizedBox(height: 16),
-          const Text('لا توجد عناصر في قائمة المشاهدة بعد',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
-          const SizedBox(height: 5),
-          const Text('ابدأ حلقة وستظهر هنا.',
-              style: TextStyle(color: tkMutedText, fontSize: 13)),
         ],
       ),
     );
