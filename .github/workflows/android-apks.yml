@@ -1,0 +1,110 @@
+name: Build Android APKs
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-apks:
+    name: Build signed Android APKs
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Create temporary test signing key
+        shell: bash
+        run: |
+          set -euo pipefail
+          STORE_PASSWORD="$(openssl rand -hex 24)"
+          KEY_PASSWORD="$(openssl rand -hex 24)"
+          keytool -genkeypair -v \
+            -keystore "$GITHUB_WORKSPACE/android/animeplus-test.jks" \
+            -storetype JKS \
+            -alias animeplus-test \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass "$STORE_PASSWORD" \
+            -keypass "$KEY_PASSWORD" \
+            -dname "CN=AnimePlus Test, OU=Build, O=AnimePlus, C=XX"
+          cat > android/key.properties <<PROPERTIES
+          storePassword=$STORE_PASSWORD
+          keyPassword=$KEY_PASSWORD
+          keyAlias=animeplus-test
+          storeFile=$GITHUB_WORKSPACE/android/animeplus-test.jks
+          PROPERTIES
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Prepare output directory
+        run: mkdir -p build/apks
+
+      - name: Build ARM64 APK
+        run: |
+          flutter build apk --release --no-shrink --target-platform android-arm64 --build-number "${{ github.run_number }}"
+          cp build/app/outputs/flutter-apk/app-release.apk build/apks/AnimePlus-arm64-v8a.apk
+
+      - name: Build ARM32 APK
+        run: |
+          flutter build apk --release --no-shrink --target-platform android-arm --build-number "${{ github.run_number }}"
+          cp build/app/outputs/flutter-apk/app-release.apk build/apks/AnimePlus-armeabi-v7a.apk
+
+      - name: Build Universal APK
+        run: |
+          flutter build apk --release --no-shrink --build-number "${{ github.run_number }}"
+          cp build/app/outputs/flutter-apk/app-release.apk build/apks/AnimePlus-universal.apk
+
+      - name: Verify APK signatures and list outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          for apk in build/apks/*.apk; do
+            "$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)/apksigner" verify --verbose "$apk"
+            sha256sum "$apk"
+          done
+          ls -lh build/apks
+
+      - name: Upload ARM64 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: AnimePlus-arm64-v8a
+          path: build/apks/AnimePlus-arm64-v8a.apk
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload ARM32 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: AnimePlus-armeabi-v7a
+          path: build/apks/AnimePlus-armeabi-v7a.apk
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload Universal APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: AnimePlus-universal
+          path: build/apks/AnimePlus-universal.apk
+          if-no-files-found: error
+          retention-days: 14
