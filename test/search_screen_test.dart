@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tako_play/screens/search_screen.dart';
-import 'package:tako_play/services/request_service.dart';
+import 'package:anime_plus/screens/search_screen.dart';
+import 'package:anime_plus/services/request_service.dart';
 
 void main() {
   setUp(() {

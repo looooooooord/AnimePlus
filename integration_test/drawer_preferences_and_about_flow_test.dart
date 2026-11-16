@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
-import 'package:tako_play/helpers/webview_manager.dart';
+import 'package:anime_plus/helpers/webview_manager.dart';
 
 import 'support/test_harness.dart';
 
@@ -25,7 +25,7 @@ void main() {
     await launchFixtureApp(tester);
 
     await tapAndWait(tester, find.byIcon(Icons.grid_view_rounded));
-    await tapAndWait(tester, find.text('About TakoPlay'));
+    await tapAndWait(tester, find.text('حول AnimePlus'));
 
     expect(find.text('About'), findsOneWidget);
     expect(find.text('v1.9.0'), findsOneWidget);

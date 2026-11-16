@@ -52,10 +52,10 @@ class _RecentListScreenState extends State<RecentListScreen>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Pick up where you left off',
+                      Text('تابع من حيث توقفت',
                           style: TextStyle(color: tkMutedText, fontSize: 13)),
                       SizedBox(height: 4),
-                      Text('SWIPE LEFT TO REMOVE',
+                      Text('اسحب لليسار للإزالة',
                           style: TextStyle(
                             color: tkCoral,
                             fontSize: 10,
@@ -110,10 +110,10 @@ class _RecentListScreenState extends State<RecentListScreen>
                 color: tkCoral, size: 32),
           ),
           const SizedBox(height: 16),
-          const Text('Nothing in your watchlist yet',
+          const Text('لا توجد عناصر في قائمة المشاهدة بعد',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
           const SizedBox(height: 5),
-          const Text('Start an episode and it will appear here.',
+          const Text('ابدأ حلقة وستظهر هنا.',
               style: TextStyle(color: tkMutedText, fontSize: 13)),
         ],
       ),

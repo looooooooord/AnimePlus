@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:tako_play/services/playback_service.dart';
-import 'package:tako_play/services/subtitle_prefetch_service.dart';
+import 'package:anime_plus/services/playback_service.dart';
+import 'package:anime_plus/services/subtitle_prefetch_service.dart';
 
 void main() {
   test('prefetches only the first three tracks', () async {

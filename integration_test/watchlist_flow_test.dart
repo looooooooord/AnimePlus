@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
-import 'package:tako_play/helpers/recent_watch_manager.dart';
-import 'package:tako_play/models/recent_anime.dart';
+import 'package:anime_plus/helpers/recent_watch_manager.dart';
+import 'package:anime_plus/models/recent_anime.dart';
 
 import 'support/test_harness.dart';
 

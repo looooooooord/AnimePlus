@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tako_play/services/playback_service.dart';
-import 'package:tako_play/widgets/hls_extractor_web_view.dart';
+import 'package:anime_plus/services/playback_service.dart';
+import 'package:anime_plus/widgets/hls_extractor_web_view.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 
 void main() {

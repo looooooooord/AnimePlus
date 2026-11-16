@@ -12,28 +12,28 @@ class AboutAppScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TakoScaffoldWithBackButton(
-      appBarTitle: 'About',
+      appBarTitle: 'حول التطبيق',
       body: ListView(
         children: [
           const ListTile(
-            title: Text('Version'),
+            title: Text('الإصدار'),
             subtitle: Text(version),
           ),
           const ListTile(
-            title: Text('Creator'),
-            subtitle: Text('Kaung Satt Hein'),
+            title: Text('المطور'),
+            subtitle: Text('فريق AnimePlus'),
           ),
           const ListTile(
-            title: Text('Contributors'),
+            title: Text('المساهمون'),
             subtitle: Text('DDavidPrime, CntrlX'),
           ),
           ListTile(
             onTap: () => _launchUrl(takoPlay),
-            title: const Text('Source Code'),
+            title: const Text('شفرة المصدر'),
             subtitle: const Text(takoPlay),
           ),
           const ListTile(
-            title: Text('License'),
+            title: Text('الترخيص'),
             subtitle: Text(license),
           ),
           ListTile(
@@ -48,15 +48,15 @@ class AboutAppScreen extends StatelessWidget {
               } else {
                 await Get.dialog(const AlertDialog(
                   backgroundColor: tkDarkBlue,
-                  content: Text('No update is available right now.'),
+                  content: Text('لا يوجد تحديث متاح حاليًا.'),
                 ));
               }
             },
-            title: const Text('Check For Update '),
+            title: const Text('التحقق من وجود تحديث'),
           ),
           ListTile(
             onTap: () => _launchUrl(mailing),
-            title: const Text('Contact Developer'),
+            title: const Text('التواصل مع المطور'),
           ),
         ],
       ),
@@ -66,6 +66,6 @@ class AboutAppScreen extends StatelessWidget {
 
 Future<void> _launchUrl(String url) async {
   if (!await launchUrl(Uri.parse(url))) {
-    throw Exception('Could not launch $url');
+    throw Exception('تعذر فتح $url');
   }
 }

@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen>
         child: Row(
           children: [
             Expanded(
-              child: Text('Discover',
+              child: Text('اكتشف',
                   style: GoogleFonts.dmSans(
                     fontSize: 32,
                     height: 1.1,
@@ -188,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen>
             borderRadius: BorderRadius.circular(24),
             onTap: () {
               setState(() => _selectedGenre = label);
-              if (label != 'All') {
+              if (label != 'الكل') {
                 final genre =
                     genreList.firstWhere((item) => item.name == label);
                 Get.toNamed(Routes.genreScreen, arguments: genre);
@@ -305,7 +305,7 @@ class _HomeScreenState extends State<HomeScreen>
                       const Icon(Icons.trending_up_rounded,
                           color: Color(0xFFFFA89C), size: 16),
                       const SizedBox(width: 6),
-                      Text('TRENDING',
+                      Text('الرائج',
                           style: GoogleFonts.dmSans(
                             color: const Color(0xFFFFA89C),
                             fontWeight: FontWeight.w900,
@@ -369,7 +369,7 @@ class _HomeScreenState extends State<HomeScreen>
                               ),
                               icon: const Icon(Icons.play_arrow_rounded,
                                   size: 21),
-                              label: Text('Watch now',
+                              label: Text('شاهد الآن',
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: GoogleFonts.dmSans(
@@ -424,15 +424,15 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildPopularSection() => _buildAnimeRail(
         future: _popularWithoutFeaturedFuture,
-        title: 'Popular now',
+        title: 'الأكثر شعبية',
         subtitle: '',
         cardBuilder: (anime, _) => PopularAnimeCard(anime: anime),
       );
 
   Widget _buildRecentlyAddedSection() => _buildAnimeRail(
         future: _recentlyAddedFuture,
-        title: 'New episodes',
-        subtitle: 'Fresh releases to watch',
+        title: 'حلقات جديدة',
+        subtitle: 'إصدارات جديدة للمشاهدة',
         cardBuilder: (anime, index) => AnimatedBuilder(
           animation: animationController,
           child: Material(
@@ -480,7 +480,7 @@ class _HomeScreenState extends State<HomeScreen>
               _buildHorizontalListView(
                 animeList,
                 (index) => cardBuilder(animeList[index], index),
-                height: title == 'Popular now' ? 235 : 280,
+                height: title == 'الأكثر شعبية' ? 235 : 280,
               ),
             ],
           );
@@ -491,16 +491,16 @@ class _HomeScreenState extends State<HomeScreen>
         future: _moviesFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState != ConnectionState.done) {
-            return _buildSectionLoading('Movies', 'A complete story tonight');
+            return _buildSectionLoading('أفلام', 'قصة كاملة لليلة ممتعة');
           }
           final movies = snapshot.data?.animeList ?? const <Anime>[];
           if (movies.isEmpty) return const SizedBox.shrink();
           return Column(
             children: [
               _buildSectionTitle(
-                'Movies',
-                'A complete story tonight',
-                onSeeAll: () => _openCatalogGrid('Movies', movies),
+                'أفلام',
+                'قصة كاملة لليلة ممتعة',
+                onSeeAll: () => _openCatalogGrid('أفلام', movies),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -529,7 +529,7 @@ class _HomeScreenState extends State<HomeScreen>
     await Get.toNamed(Routes.catalogGridScreen, arguments: {
       'title': title,
       'animeList': List<Anime>.of(items),
-      if (title == 'Popular now')
+      if (title == 'الأكثر شعبية')
         'excludedAnimeIds': _featuredAnimeIds.toList(growable: false),
     });
   }
@@ -573,7 +573,7 @@ class _HomeScreenState extends State<HomeScreen>
               onPressed: onSeeAll,
               iconAlignment: IconAlignment.end,
               icon: const Icon(Icons.chevron_right_rounded, size: 20),
-              label: const Text('See all'),
+              label: const Text('عرض الكل'),
               style: TextButton.styleFrom(
                 foregroundColor: const Color(0xFFA69AFF),
                 padding: EdgeInsets.zero,

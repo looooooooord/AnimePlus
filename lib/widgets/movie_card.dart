@@ -59,7 +59,7 @@ class MovieCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'MOVIE',
+                      'فيلم',
                       style: TextStyle(
                         color: tkMutedText,
                         fontSize: 10,
@@ -83,7 +83,7 @@ class MovieCard extends StatelessWidget {
                     const Row(
                       children: [
                         Text(
-                          'Watch',
+                          'مشاهدة',
                           style: TextStyle(
                             color: tkGradientBlue,
                             fontSize: 12,

@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
-import 'package:tako_play/database/bookmark_database.dart';
-import 'package:tako_play/database/recent_watch_anime_database.dart';
-import 'package:tako_play/helpers/bookmark_manager.dart';
-import 'package:tako_play/helpers/recent_watch_manager.dart';
-import 'package:tako_play/models/bookmark.dart';
-import 'package:tako_play/models/recent_anime.dart';
-import 'package:tako_play/screens/bookmarks_screen.dart';
-import 'package:tako_play/screens/recent_list_screen.dart';
+import 'package:anime_plus/database/bookmark_database.dart';
+import 'package:anime_plus/database/recent_watch_anime_database.dart';
+import 'package:anime_plus/helpers/bookmark_manager.dart';
+import 'package:anime_plus/helpers/recent_watch_manager.dart';
+import 'package:anime_plus/models/bookmark.dart';
+import 'package:anime_plus/models/recent_anime.dart';
+import 'package:anime_plus/screens/bookmarks_screen.dart';
+import 'package:anime_plus/screens/recent_list_screen.dart';
 
 void main() {
   setUp(() => Get.testMode = true);

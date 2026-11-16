@@ -45,7 +45,7 @@ class NextEpisodeOverlay extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       if (controller.isOpeningVisible) ...[
-                        const Text('Opening credits',
+                        const Text('شارة البداية',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
@@ -54,13 +54,13 @@ class NextEpisodeOverlay extends StatelessWidget {
                         FilledButton.icon(
                           onPressed: controller.skipOpeningNow,
                           icon: const Icon(Icons.fast_forward_rounded),
-                          label: const Text('Skip intro'),
+                          label: const Text('تخطي المقدمة'),
                         ),
                       ],
                       if (controller.isOpeningVisible && controller.isVisible)
                         const Divider(color: Colors.white24, height: 20),
                       if (controller.isVisible && next != null) ...[
-                        Text('Up next · Episode ${next.episode.number}',
+                        Text('التالي · الحلقة ${next.episode.number}',
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
@@ -88,7 +88,7 @@ class NextEpisodeOverlay extends StatelessWidget {
                             onPressed: controller.isSwitching
                                 ? null
                                 : controller.dismiss,
-                            child: const Text('Keep watching'),
+                            child: const Text('متابعة المشاهدة'),
                           ),
                         ]),
                       ],
@@ -124,11 +124,11 @@ class NextEpisodeOverlay extends StatelessWidget {
                       if (controller.isOpeningVisible)
                         _VerticalPromptRow(
                           icon: Icons.fast_forward_rounded,
-                          title: 'Opening credits',
+                          title: 'شارة البداية',
                           action: FilledButton.icon(
                             onPressed: controller.skipOpeningNow,
                             icon: const Icon(Icons.skip_next_rounded, size: 19),
-                            label: const Text('Skip intro'),
+                            label: const Text('تخطي المقدمة'),
                           ),
                         ),
                       if (controller.isOpeningVisible && controller.isVisible)
@@ -136,14 +136,14 @@ class NextEpisodeOverlay extends StatelessWidget {
                       if (controller.isVisible && next != null)
                         _VerticalPromptRow(
                           icon: Icons.queue_play_next_rounded,
-                          title: 'Episode ${next.episode.number}',
+                          title: 'الحلقة ${next.episode.number}',
                           detail: next.name,
                           status: _statusText,
                           action: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
-                                tooltip: 'Keep watching',
+                                tooltip: 'متابعة المشاهدة',
                                 onPressed: controller.isSwitching
                                     ? null
                                     : controller.dismiss,
@@ -170,18 +170,18 @@ class NextEpisodeOverlay extends StatelessWidget {
       );
 
   String get _statusText => controller.hasError
-      ? 'Could not prepare this episode'
+      ? 'تعذر تجهيز هذه الحلقة'
       : controller.isPreparing
-          ? 'Preparing next episode…'
+          ? 'جارٍ تجهيز الحلقة التالية…'
           : controller.hasEndingTiming
-              ? 'Ending credits'
-              : 'This episode is almost over';
+              ? 'شارة النهاية'
+              : 'شارفت هذه الحلقة على الانتهاء';
 
   String get _nextLabel => controller.isSwitching
-      ? 'Opening…'
+      ? 'شارة البداية…'
       : controller.hasError
-          ? 'Retry next'
-          : 'Play next';
+          ? 'إعادة محاولة التالية'
+          : 'تشغيل التالية';
 
   Widget get _nextIcon => controller.isSwitching
       ? const SizedBox(

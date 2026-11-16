@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tako_play/utils/subtitle_name.dart';
+import 'package:anime_plus/utils/subtitle_name.dart';
 
 void main() {
   test('infers subtitle languages from labels, query and filename', () {

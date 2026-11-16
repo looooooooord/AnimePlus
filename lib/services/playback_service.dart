@@ -48,14 +48,14 @@ class PlaybackService {
   Future<PlaybackSource> resolveEpisode(String episodeUrl) async {
     if (!isConfigured) {
       throw const PlaybackResolutionException(
-          'Playback API is not configured.');
+          'لم يتم إعداد واجهة تشغيل الوسائط.');
     }
 
     try {
       final resolverUri = Uri.tryParse(_resolverUrl);
       if (resolverUri == null) {
         throw const PlaybackResolutionException(
-          'Playback API URL is invalid.',
+          'رابط واجهة تشغيل الوسائط غير صالح.',
         );
       }
       final resolver = resolverUri.replace(
@@ -66,7 +66,7 @@ class PlaybackService {
       );
       if (resolver.scheme != 'https') {
         throw const PlaybackResolutionException(
-          'Playback API must use HTTPS.',
+          'يجب أن تستخدم واجهة تشغيل الوسائط بروتوكول HTTPS.',
         );
       }
       final response = await _client.get(
@@ -88,18 +88,18 @@ class PlaybackService {
         decoded = jsonDecode(response.body);
       } on FormatException {
         throw const PlaybackResolutionException(
-          'Playback API returned invalid JSON.',
+          'أعادت واجهة تشغيل الوسائط بيانات JSON غير صالحة.',
         );
       }
       if (decoded is! Map<String, dynamic>) {
         throw const PlaybackResolutionException(
-            'Playback API returned invalid JSON.');
+            'أعادت واجهة تشغيل الوسائط بيانات JSON غير صالحة.');
       }
 
       final streamUrl = decoded['url'];
       if (streamUrl is! String || !_isHlsUrl(streamUrl)) {
         throw const PlaybackResolutionException(
-            'Playback API did not return an HTTPS HLS URL.');
+            'لم تُرجع واجهة تشغيل الوسائط رابط HLS عبر HTTPS.');
       }
 
       final responseHeaders = decoded['headers'];
@@ -123,7 +123,7 @@ class PlaybackService {
             ),
       );
     } on TimeoutException {
-      throw const PlaybackResolutionException('Playback API timed out.');
+      throw const PlaybackResolutionException('انتهت مهلة واجهة تشغيل الوسائط.');
     } finally {
       if (_ownsClient) _client.close();
     }
@@ -144,14 +144,14 @@ class PlaybackService {
     if (episodeUri == null ||
         episodeUri.scheme != 'https' ||
         episodeUri.host.isEmpty) {
-      throw const PlaybackResolutionException('Episode URL is invalid.');
+      throw const PlaybackResolutionException('رابط الحلقة غير صالح.');
     }
 
     try {
       final candidates = playerUrls.toList(growable: false);
       if (candidates.isEmpty) {
         throw const PlaybackResolutionException(
-          'No playable HLS source was found in the embedded players.',
+          'لم يتم العثور على مصدر HLS قابل للتشغيل في المشغلات المضمّنة.',
         );
       }
       return await _resolveFirstPlayableCandidate(candidates, episodeUri);
@@ -193,7 +193,7 @@ class PlaybackService {
               result, ++failedCandidates, candidates.length, lastError);
         } catch (_) {
           lastError = const PlaybackResolutionException(
-            'An embedded player could not be resolved.',
+            'تعذر حل المشغل المضمّن.',
           );
           _completeAfterCandidateFailure(
               result, ++failedCandidates, candidates.length, lastError);
@@ -214,7 +214,7 @@ class PlaybackService {
     result.completeError(
       lastError ??
           const PlaybackResolutionException(
-            'No playable HLS source was found in the embedded players.',
+            'لم يتم العثور على مصدر HLS قابل للتشغيل في المشغلات المضمّنة.',
           ),
     );
   }
@@ -229,7 +229,7 @@ class PlaybackService {
         playerUri.scheme != 'https' ||
         playerUri.host.isEmpty) {
       throw const PlaybackResolutionException(
-          'Embedded player URL is invalid.');
+          'رابط المشغل المضمّن غير صالح.');
     }
 
     try {
@@ -273,7 +273,7 @@ class PlaybackService {
       final streamUri = _streamUriFromResponse(response, resolvedPlayerUri);
       if (streamUri == null || !_isHlsUrl(streamUri.toString())) {
         throw const PlaybackResolutionException(
-          'Embedded player did not expose an HTTPS HLS URL.',
+          'لم يعرض المشغل المضمّن رابط HLS عبر HTTPS.',
         );
       }
 
@@ -295,7 +295,7 @@ class PlaybackService {
         ),
       );
     } on TimeoutException {
-      throw const PlaybackResolutionException('Embedded player timed out.');
+      throw const PlaybackResolutionException('انتهت مهلة المشغل المضمّن.');
     }
   }
 
@@ -311,14 +311,14 @@ class PlaybackService {
   ) async {
     if (!_gogoFragmentPattern.hasMatch(fragment)) {
       throw const PlaybackResolutionException(
-        'Embedded player episode data is invalid.',
+        'بيانات حلقة المشغل المضمّن غير صالحة.',
       );
     }
     final pageKey =
         _gogoPageKeyPattern.firstMatch(playerResponse.body)?.group(1);
     if (pageKey == null) {
       throw const PlaybackResolutionException(
-        'Embedded player did not expose its handoff key.',
+        'لم يعرض المشغل المضمّن مفتاح النقل الخاص به.',
       );
     }
 
@@ -350,17 +350,17 @@ class PlaybackService {
       decoded = jsonDecode(response.body);
     } on FormatException {
       throw const PlaybackResolutionException(
-        'Embedded player handoff returned invalid JSON.',
+        'أعاد نقل المشغل المضمّن بيانات JSON غير صالحة.',
       );
     }
     if (decoded is! Map<String, dynamic>) {
       throw const PlaybackResolutionException(
-        'Embedded player handoff returned invalid JSON.',
+        'أعاد نقل المشغل المضمّن بيانات JSON غير صالحة.',
       );
     }
     if (decoded['mode'] != 'embed' || decoded['info'] is! String) {
       throw const PlaybackResolutionException(
-        'Embedded player did not return a playable embed.',
+        'لم يُرجع المشغل المضمّن رابطًا قابلًا للتشغيل.',
       );
     }
 
@@ -369,7 +369,7 @@ class PlaybackService {
     // Browser AES-GCM data is nonce || ciphertext || 16-byte auth tag.
     if (encrypted.length < 29) {
       throw const PlaybackResolutionException(
-        'Embedded player handoff payload is invalid.',
+        'بيانات نقل المشغل المضمّن غير صالحة.',
       );
     }
 
@@ -386,7 +386,7 @@ class PlaybackService {
       embedUrl = utf8.decode(plaintext);
     } on Exception {
       throw const PlaybackResolutionException(
-        'Embedded player handoff could not be decoded.',
+        'تعذر فك ترميز بيانات نقل المشغل المضمّن.',
       );
     }
 
@@ -395,7 +395,7 @@ class PlaybackService {
         embedUri.scheme != 'https' ||
         embedUri.host.isEmpty) {
       throw const PlaybackResolutionException(
-        'Embedded player returned an invalid embed URL.',
+        'أعاد المشغل المضمّن رابطًا غير صالح.',
       );
     }
     return embedUri;
@@ -406,7 +406,7 @@ class PlaybackService {
       return base64Url.decode(base64Url.normalize(value));
     } on FormatException {
       throw const PlaybackResolutionException(
-        'Embedded player handoff payload is invalid.',
+        'بيانات نقل المشغل المضمّن غير صالحة.',
       );
     }
   }

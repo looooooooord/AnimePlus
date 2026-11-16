@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../utils/constants.dart';
 
-/// A compact prompt for the latest stable TakoPlay release.
+/// A compact prompt for the latest stable AnimePlus release.
 class UpdateAlertDialog extends StatelessWidget {
   const UpdateAlertDialog({
     super.key,
@@ -50,7 +50,7 @@ class UpdateAlertDialog extends StatelessWidget {
             borderRadius: BorderRadius.circular(25),
             child: Semantics(
               namesRoute: true,
-              label: 'Stable TakoPlay update available',
+              label: 'يتوفر تحديث مستقر لـ AnimePlus',
               child: Stack(
                 children: [
                   Positioned(
@@ -98,7 +98,7 @@ class UpdateAlertDialog extends StatelessWidget {
                             ),
                             const Spacer(),
                             IconButton(
-                              tooltip: 'Close update prompt',
+                              tooltip: 'إغلاق إشعار التحديث',
                               onPressed: () => Navigator.of(context).pop(),
                               style: IconButton.styleFrom(
                                 backgroundColor: tkSurface,
@@ -111,7 +111,7 @@ class UpdateAlertDialog extends StatelessWidget {
                         ),
                         const SizedBox(height: 22),
                         Text(
-                          'TAKOPLAY UPDATE',
+                          'تحديث أنميPLUS',
                           style: textTheme.labelMedium?.copyWith(
                             color: Color(0xFFB9AEFF),
                             fontWeight: FontWeight.w800,
@@ -120,7 +120,7 @@ class UpdateAlertDialog extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'A new version is ready',
+                          'إصدار جديد جاهز',
                           style: textTheme.headlineMedium?.copyWith(
                             fontSize: 25,
                             height: 1.12,
@@ -129,7 +129,7 @@ class UpdateAlertDialog extends StatelessWidget {
                         ),
                         const SizedBox(height: 9),
                         Text(
-                          'Get the latest improvements and fixes with the newest release.',
+                          'احصل على أحدث التحسينات والإصلاحات مع الإصدار الجديد.',
                           style: textTheme.bodyMedium?.copyWith(
                             color: tkMutedText,
                             height: 1.5,
@@ -160,7 +160,7 @@ class UpdateAlertDialog extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'STABLE RELEASE',
+                                      'إصدار مستقر',
                                       style: textTheme.labelSmall?.copyWith(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w800,
@@ -170,8 +170,8 @@ class UpdateAlertDialog extends StatelessWidget {
                                     const SizedBox(height: 3),
                                     Text(
                                       isDirectApkDownload
-                                          ? 'Official APK download'
-                                          : 'Official GitHub release page',
+                                          ? 'تنزيل APK الرسمي'
+                                          : 'صفحة الإصدار الرسمية على GitHub',
                                       style: textTheme.bodySmall?.copyWith(
                                         color: tkMutedText,
                                       ),
@@ -202,8 +202,8 @@ class UpdateAlertDialog extends StatelessWidget {
                               size: 19,
                             ),
                             label: Text(isDirectApkDownload
-                                ? 'Download APK'
-                                : 'View release'),
+                                ? 'تنزيل APK'
+                                : 'عرض الإصدار'),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -215,7 +215,7 @@ class UpdateAlertDialog extends StatelessWidget {
                               foregroundColor: tkMutedText,
                               minimumSize: const Size.fromHeight(44),
                             ),
-                            child: const Text('Maybe later'),
+                            child: const Text('ربما لاحقًا'),
                           ),
                         ),
                       ],
@@ -233,6 +233,6 @@ class UpdateAlertDialog extends StatelessWidget {
 
 Future<void> _launchUrl(String url) async {
   if (!await launchUrl(Uri.parse(url))) {
-    throw Exception('Could not launch $url');
+    throw Exception('تعذر فتح $url');
   }
 }

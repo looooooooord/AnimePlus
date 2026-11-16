@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:tako_play/database/bookmark_database.dart';
-import 'package:tako_play/database/recent_watch_anime_database.dart';
-import 'package:tako_play/models/bookmark.dart';
-import 'package:tako_play/models/episode_watch_progress.dart';
-import 'package:tako_play/models/recent_anime.dart';
+import 'package:anime_plus/database/bookmark_database.dart';
+import 'package:anime_plus/database/recent_watch_anime_database.dart';
+import 'package:anime_plus/models/bookmark.dart';
+import 'package:anime_plus/models/episode_watch_progress.dart';
+import 'package:anime_plus/models/recent_anime.dart';
 
 void main() {
   late DatabaseFactory factory;

@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 import '../services/ending_timing_service.dart';
 import '../services/playback_service.dart';
@@ -51,21 +50,13 @@ class _HlsExtractorWebViewState extends State<HlsExtractorWebView> {
     _activePageUri = initialUri;
     _visitedPages.add(initialUri.toString());
 
-    final PlatformWebViewControllerCreationParams params;
-    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
-      params = WebKitWebViewControllerCreationParams(
-        allowsInlineMediaPlayback: true,
-        mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
-      );
-    } else {
-      params = const PlatformWebViewControllerCreationParams();
-    }
+    const params = PlatformWebViewControllerCreationParams();
 
     _controller = WebViewController.fromPlatformCreationParams(params)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(Colors.black)
       ..addJavaScriptChannel(
-        'TakoHlsExtractor',
+        'AnimePlusHlsExtractor',
         onMessageReceived: _handleMessage,
       )
       ..setNavigationDelegate(
@@ -434,7 +425,7 @@ const _extractionScript = r'''
     const manifest = findHls();
     if (manifest) {
       clearInterval(timer);
-      TakoHlsExtractor.postMessage(JSON.stringify({
+      AnimePlusHlsExtractor.postMessage(JSON.stringify({
         type: 'hls', url: manifest, pageUrl: location.href,
         subtitles: findSubtitles(), opening: findOpening(), ending: findEnding()
       }));
@@ -444,7 +435,7 @@ const _extractionScript = r'''
       const frame = document.querySelector('iframe[src]');
       if (frame) {
         clearInterval(timer);
-        TakoHlsExtractor.postMessage(JSON.stringify({
+        AnimePlusHlsExtractor.postMessage(JSON.stringify({
           type: 'embed', url: frame.src, pageUrl: location.href
         }));
       }

@@ -78,7 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      'Search',
+                      'بحث',
                       style: GoogleFonts.dmSans(
                         fontSize: 25,
                         fontWeight: FontWeight.w700,
@@ -104,7 +104,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   hasValue.value = true;
                 },
                 decoration: InputDecoration(
-                  hintText: 'Search anime, movies, genres…',
+                  hintText: 'ابحث عن أنمي أو أفلام أو تصنيفات…',
                   prefixIcon: const Icon(Icons.search_rounded, color: tkCoral),
                   suffixIcon: ValueListenableBuilder<TextEditingValue>(
                     valueListenable: _controller,
@@ -140,7 +140,7 @@ class _SearchScreenState extends State<SearchScreen> {
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return _emptyState(
-            'Search failed. Check your connection and try again.',
+            'فشل البحث. تحقق من اتصالك وحاول مرة أخرى.',
             Icons.wifi_off_rounded,
             onRetry: () => setState(() => _requestRevision++),
           );
@@ -150,7 +150,7 @@ class _SearchScreenState extends State<SearchScreen> {
         }
         final list = snapshot.data?.animeList ?? <Anime>[];
         if (list.isEmpty) {
-          return _emptyState('No matches found', Icons.search_off_rounded);
+          return _emptyState('لم يتم العثور على نتائج', Icons.search_off_rounded);
         }
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,7 +158,7 @@ class _SearchScreenState extends State<SearchScreen> {
             Padding(
               padding: const EdgeInsets.fromLTRB(22, 0, 22, 12),
               child: Text(
-                '${list.length} results for “${title.value}”',
+                '${list.length} نتيجة لـ «${title.value}»',
                 style: const TextStyle(color: tkMutedText, fontSize: 13),
               ),
             ),
@@ -186,7 +186,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   child: SearchedResultAnimeCard(
                     anime: list[index],
-                    fallbackCategoryLabel: 'Series',
+                    fallbackCategoryLabel: 'مسلسلات',
                   ),
                 ),
               ),
@@ -203,7 +203,7 @@ class _SearchScreenState extends State<SearchScreen> {
       builder: (_, snapshot) {
         final searches = snapshot.data ?? <String>[];
         if (searches.isEmpty) {
-          return _emptyState('Start typing to find something great',
+          return _emptyState('ابدأ بالكتابة للعثور على شيء رائع',
               Icons.auto_awesome_rounded);
         }
         return ListView(
@@ -212,7 +212,7 @@ class _SearchScreenState extends State<SearchScreen> {
           children: [
             const Padding(
               padding: EdgeInsets.only(bottom: 10),
-              child: Text('RECENT SEARCHES',
+              child: Text('عمليات البحث الأخيرة',
                   style: TextStyle(
                       color: tkMutedText,
                       fontSize: 11,
@@ -277,7 +277,7 @@ class _SearchScreenState extends State<SearchScreen> {
             OutlinedButton.icon(
               onPressed: onRetry,
               icon: const Icon(Icons.refresh_rounded),
-              label: const Text('Try again'),
+              label: const Text('حاول مجددًا'),
             ),
           ],
         ],
@@ -288,9 +288,9 @@ class _SearchScreenState extends State<SearchScreen> {
   Future<void> _saveToRecentSearches(String searchText) async {
     final preferences = await SharedPreferences.getInstance();
     final allSearches =
-        preferences.getStringList('takoRecentSearches') ?? <String>[];
+        preferences.getStringList('takoRecentبحثes') ?? <String>[];
     await preferences.setStringList(
-      'takoRecentSearches',
+      'takoRecentبحثes',
       [searchText, ...allSearches.where((item) => item != searchText)]
           .take(8)
           .toList(),
@@ -300,15 +300,15 @@ class _SearchScreenState extends State<SearchScreen> {
   Future<void> _deleteSearch(String searchText) async {
     final preferences = await SharedPreferences.getInstance();
     final searches =
-        preferences.getStringList('takoRecentSearches') ?? <String>[];
+        preferences.getStringList('takoRecentبحثes') ?? <String>[];
     await preferences.setStringList(
-      'takoRecentSearches',
+      'takoRecentبحثes',
       searches.where((item) => item != searchText).toList(),
     );
   }
 
   Future<List<String>> _getRecentSearches() async {
     final preferences = await SharedPreferences.getInstance();
-    return preferences.getStringList('takoRecentSearches') ?? <String>[];
+    return preferences.getStringList('takoRecentبحثes') ?? <String>[];
   }
 }

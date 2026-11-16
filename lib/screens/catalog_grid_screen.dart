@@ -27,7 +27,7 @@ class _CatalogGridScreenState extends State<CatalogGridScreen> {
   var _hasMore = true;
   var _loadError = false;
 
-  bool get _canPaginate => title == 'Popular now' || title == 'Movies';
+  bool get _canPaginate => title == 'الأكثر شعبية' || title == 'أفلام';
 
   @override
   void initState() {
@@ -72,7 +72,7 @@ class _CatalogGridScreenState extends State<CatalogGridScreen> {
     try {
       final requestService = Get.find<RequestService>();
       final animeService = AnimeService(requestService: requestService);
-      final result = title == 'Popular now'
+      final result = title == 'الأكثر شعبية'
           ? await animeService
               .getAnimes(requestService.requestPopularResponse(_nextPage))
           : await animeService
@@ -172,7 +172,7 @@ class _CatalogGridScreenState extends State<CatalogGridScreen> {
                                 child: SearchedResultAnimeCard(
                                   anime: _items[index],
                                   heroTag: _cardHeroTag(title, _items[index]),
-                                  enableHero: title != 'Movies',
+                                  enableHero: title != 'أفلام',
                                 ),
                               ),
                               childCount: _items.length,
@@ -191,9 +191,9 @@ class _CatalogGridScreenState extends State<CatalogGridScreen> {
     );
   }
 
-  String _cardHeroTag(String title, Anime anime) => title == 'Popular now'
+  String _cardHeroTag(String title, Anime anime) => title == 'الأكثر شعبية'
       ? anime.id.toString()
-      : 'catalog-New episodes-${anime.id}';
+      : 'catalog-حلقات جديدة-${anime.id}';
 
   Widget _buildPaginationFooter() => Padding(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 28),
@@ -203,7 +203,7 @@ class _CatalogGridScreenState extends State<CatalogGridScreen> {
                   onPressed: _loadNextPage,
                   icon: const Icon(Icons.refresh_rounded),
                   label: Text(
-                    'Could not load more. Tap to retry',
+                    'تعذر تحميل المزيد. اضغط لإعادة المحاولة',
                     style: GoogleFonts.dmSans(color: tkMutedText),
                   ),
                 )

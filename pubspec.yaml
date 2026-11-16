@@ -1,4 +1,4 @@
-name: tako_play
+name: anime_plus
 description: A modern anime catalogue and watchlist app built with Flutter.
 
 publish_to: "none"
@@ -16,6 +16,8 @@ dependencies:
   cupertino_icons: ^2.0.0
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_cache_manager: ^3.3.0
   get: ^4.7.3
   google_fonts: ^9.0.0
@@ -28,7 +30,6 @@ dependencies:
   url_launcher: ^6.3.2
   uuid: ^4.6.0
   webview_flutter: ^4.13.1
-  webview_flutter_wkwebview: ^3.23.0
 
 dev_dependencies:
   connectivity_plus_platform_interface: ^2.0.1
@@ -47,7 +48,7 @@ flutter_native_splash:
   image: assets/images/splash.png
 
   android: true
-  ios: true
+  ios: false
   web: false
 
 flutter:

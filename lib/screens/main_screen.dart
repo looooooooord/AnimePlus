@@ -26,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
     RecentListScreen(),
     BookMarksScreen(),
   ];
-  final _titles = const ['Discover', 'Continue watching', 'My library'];
+  final _titles = const ['اكتشف', 'متابعة المشاهدة', 'مكتبتي'];
 
   @override
   void initState() {
@@ -98,10 +98,10 @@ class _MainScreenState extends State<MainScreen> {
             ),
             child: Row(
               children: [
-                _navigationItem(0, Icons.home_rounded, 'Home'),
+                _navigationItem(0, Icons.home_rounded, 'الرئيسية'),
                 _navigationItem(
-                    1, Icons.play_circle_outline_rounded, 'Watchlist'),
-                _navigationItem(2, Icons.bookmark_border_rounded, 'Saved'),
+                    1, Icons.play_circle_outline_rounded, 'قائمة المشاهدة'),
+                _navigationItem(2, Icons.bookmark_border_rounded, 'المحفوظات'),
               ],
             ),
           ),

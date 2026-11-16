@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
-import 'package:tako_play/helpers/recent_watch_manager.dart';
+import 'package:anime_plus/helpers/recent_watch_manager.dart';
 
 import 'support/test_harness.dart';
 

@@ -14,7 +14,7 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final webViewManagerController = Get.find<WebViewManager>();
     return TakoScaffoldWithBackButton(
-      appBarTitle: 'Settings',
+      appBarTitle: 'الإعدادات',
       body: ListView(
         children: [
           GetBuilder(
@@ -23,9 +23,9 @@ class SettingScreen extends StatelessWidget {
               activeThumbColor: tkGradientBlue,
               value: webViewManagerController.isWebView,
               onChanged: webViewManagerController.changeWebViewType,
-              title: const Text('Use browser player'),
+              title: const Text('استخدام مشغل المتصفح'),
               subtitle: const Text(
-                'Turn this on only if a video will not play',
+                'فعّل هذا الخيار فقط إذا تعذر تشغيل الفيديو',
               ),
             ),
           ),

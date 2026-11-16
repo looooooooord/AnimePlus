@@ -114,7 +114,7 @@ class RecentAnimeCard extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      const Text('Continue watching',
+                      const Text('متابعة المشاهدة',
                           style: TextStyle(color: tkMutedText, fontSize: 12)),
                     ],
                   ),

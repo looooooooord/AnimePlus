@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:tako_play/models/anime.dart';
-import 'package:tako_play/models/playback_context.dart';
-import 'package:tako_play/services/ending_timing_service.dart';
+import 'package:anime_plus/models/anime.dart';
+import 'package:anime_plus/models/playback_context.dart';
+import 'package:anime_plus/services/ending_timing_service.dart';
 
 PlaybackContext context({String number = '2'}) => PlaybackContext(
     id: 'catalog-id',

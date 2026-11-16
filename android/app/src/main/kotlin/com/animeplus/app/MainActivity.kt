@@ -1,4 +1,4 @@
-package com.kaungsatthein.takoplay
+package com.animeplus.app
 
 import io.flutter.embedding.android.FlutterActivity
 

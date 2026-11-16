@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
-import 'package:tako_play/models/anime.dart';
-import 'package:tako_play/utils/routes.dart';
-import 'package:tako_play/widgets/movie_card.dart';
-import 'package:tako_play/widgets/popular_anime_card.dart';
-import 'package:tako_play/widgets/tako_animation.dart';
+import 'package:anime_plus/models/anime.dart';
+import 'package:anime_plus/utils/routes.dart';
+import 'package:anime_plus/widgets/movie_card.dart';
+import 'package:anime_plus/widgets/popular_anime_card.dart';
+import 'package:anime_plus/widgets/tako_animation.dart';
 
 const _anime = Anime(
   id: 'coverage-show',

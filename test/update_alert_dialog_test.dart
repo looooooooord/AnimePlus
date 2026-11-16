@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tako_play/theme/tako_theme.dart';
-import 'package:tako_play/widgets/update_alert_dialog.dart';
+import 'package:anime_plus/theme/tako_theme.dart';
+import 'package:anime_plus/widgets/update_alert_dialog.dart';
 
 void main() {
   testWidgets('uses the dark release-card design and can be dismissed',

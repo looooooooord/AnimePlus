@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 /// Collection of all app related constants go here
 
 const String version = 'v1.9.1';
-const license = 'PolyForm Noncommercial License 1.0.0';
+const license = 'PolyForm Noncommercial الترخيص 1.0.0';
 const String latestRelease =
-    'https://api.github.com/repos/kaungsatthe1n/Tako-Play/releases/latest';
+    'https://api.github.com/repos/looooooooord/AnimePlus/releases/latest';
 
 /// Catalog source. Override for an owned API or staging source with:
 /// `--dart-define=SOURCE_BASE_URL=https://catalog.example.com`.
@@ -20,10 +20,10 @@ final mediaFileRegExp =
 final resolutionRegExp = RegExp(r'[0-9]+(P)');
 // final hostRegExp = RegExp(r"(Server )[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+[,]");
 
-const String takoPlay = 'https://github.com/kaungsatthe1n/Tako-Play';
+const String takoPlay = 'https://github.com/looooooooord/AnimePlus';
 const String takoTracker = 'https://github.com/kaungsatthe1n/Tako-AnimeTracker';
 const String mailing =
-    'mailto:parrotksh@gmail.com?subject=[TakoPlay: (Ver: $version)]';
+    'mailto:parrotksh@gmail.com?subject=[AnimePlus: (Ver: $version)]';
 const userAgent =
     'Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36';
 const origin = sourceBaseUrl;

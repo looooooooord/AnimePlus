@@ -415,7 +415,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         source = await _extractNext(embeds, context.episode.link);
       }
     }
-    if (_closing) throw StateError('Player closed');
+    if (_closing) throw StateError('المشغل closed');
     return _subtitleService.prepare(source);
   }
 
@@ -434,7 +434,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       }
       if (source != null) return source;
     }
-    throw const PlaybackResolutionException('Next episode is unavailable.');
+    throw const PlaybackResolutionException('التالي episode is unavailable.');
   }
 
   void _cancelNextExtraction() {
@@ -446,7 +446,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   }
 
   Future<void> _playNext(PlaybackContext context, PlaybackSource source) async {
-    if (_closing) throw StateError('Player closed');
+    if (_closing) throw StateError('المشغل closed');
     final currentValue = _controller.videoPlayerValue;
     final currentDuration = currentValue?.duration;
     if (currentValue != null &&
@@ -460,11 +460,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       );
     }
     await _controller.pause();
-    if (_closing) throw StateError('Player closed');
+    if (_closing) throw StateError('المشغل closed');
     await _controller.setupDataSource(_dataSource(source));
-    if (_closing) throw StateError('Player closed');
+    if (_closing) throw StateError('المشغل closed');
     if (_controller.videoPlayerValue?.hasError == true) {
-      throw const PlaybackResolutionException('Next episode could not start.');
+      throw const PlaybackResolutionException('التالي episode could not start.');
     }
     await _controller.play();
     if (Get.isRegistered<RecentWatchManager>()) {

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tako_play/widgets/tako_play_web_view.dart';
+import 'package:anime_plus/widgets/tako_play_web_view.dart';
 
 void main() {
   test('allows secure player redirects and blocks non-web schemes', () {

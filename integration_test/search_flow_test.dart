@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tako_play/widgets/searched_result_anime_card.dart';
+import 'package:anime_plus/widgets/searched_result_anime_card.dart';
 
 import 'support/test_harness.dart';
 

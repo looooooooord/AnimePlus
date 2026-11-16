@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tako_play/database/bookmark_database.dart';
-import 'package:tako_play/database/recent_watch_anime_database.dart';
-import 'package:tako_play/helpers/bookmark_manager.dart';
-import 'package:tako_play/helpers/recent_watch_manager.dart';
-import 'package:tako_play/models/bookmark.dart';
-import 'package:tako_play/models/recent_anime.dart';
+import 'package:anime_plus/database/bookmark_database.dart';
+import 'package:anime_plus/database/recent_watch_anime_database.dart';
+import 'package:anime_plus/helpers/bookmark_manager.dart';
+import 'package:anime_plus/helpers/recent_watch_manager.dart';
+import 'package:anime_plus/models/bookmark.dart';
+import 'package:anime_plus/models/recent_anime.dart';
 
 void main() {
   test('bookmark manager persists before exposing additions and removals',

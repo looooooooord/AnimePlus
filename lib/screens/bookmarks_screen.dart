@@ -50,7 +50,7 @@ class _BookMarksScreenState extends State<BookMarksScreen>
               if (index == 0) {
                 return const Padding(
                   padding: EdgeInsets.only(bottom: 8),
-                  child: Text('Your handpicked titles, ready whenever you are.',
+                  child: Text('العناوين التي اخترتها، متاحة لك في أي وقت.',
                       style: TextStyle(color: tkMutedText, fontSize: 13)),
                 );
               }
@@ -65,7 +65,7 @@ class _BookMarksScreenState extends State<BookMarksScreen>
                 onRemove: () async {
                   await bookmarkManager.removeFromBookMarks(bookmark);
                   Get.snackbar(
-                    'Removed from Saved',
+                    'تمت الإزالة من المحفوظات',
                     bookmark.name,
                     backgroundColor: tkDarkBlue,
                     colorText: Colors.white,
@@ -95,10 +95,10 @@ class _BookMarksScreenState extends State<BookMarksScreen>
                 color: tkCoral, size: 32),
           ),
           const SizedBox(height: 16),
-          const Text('Your Saved list is empty',
+          const Text('قائمة المحفوظات فارغة',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
           const SizedBox(height: 5),
-          const Text('Save an anime from its detail page to keep it here.',
+          const Text('احفظ أنمي من صفحة التفاصيل ليظهر هنا.',
               style: TextStyle(color: tkMutedText, fontSize: 13)),
         ],
       ),
@@ -150,7 +150,7 @@ class _BookmarkCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('SAVED TITLE',
+                      const Text('عنوان محفوظ',
                           style: TextStyle(
                               color: tkCoral,
                               fontSize: 10,
@@ -164,7 +164,7 @@ class _BookmarkCard extends StatelessWidget {
                               height: 1.18,
                               fontWeight: FontWeight.w800)),
                       const Spacer(),
-                      const Text('View episodes',
+                      const Text('عرض الحلقات',
                           style: TextStyle(color: tkMutedText, fontSize: 12)),
                     ],
                   ),
@@ -172,7 +172,7 @@ class _BookmarkCard extends StatelessWidget {
               ),
               IconButton(
                 onPressed: onRemove,
-                tooltip: 'Remove from Saved',
+                tooltip: 'إزالة من المحفوظات',
                 icon: const Icon(Icons.bookmark_remove_outlined,
                     color: tkMutedText),
               ),

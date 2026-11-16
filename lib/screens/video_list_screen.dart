@@ -121,7 +121,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
   @override
   Widget build(BuildContext context) {
     return TakoScaffoldWithBackButton(
-      appBarTitle: 'Player',
+      appBarTitle: 'المشغل',
       extendBodyBehindAppBar: true,
       body: FutureBuilder<Anime>(
           future: _animeDetails,
@@ -213,12 +213,12 @@ class _VideoListScreenState extends State<VideoListScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Episodes',
+        Text('الحلقات',
             style: TakoTheme.darkTextTheme.headlineSmall?.copyWith(
               fontSize: 21,
               fontWeight: FontWeight.w800,
             )),
-        const Text('Choose where to start',
+        const Text('اختر نقطة البداية',
             style: TextStyle(color: tkMutedText, fontSize: 12)),
       ],
     );
@@ -239,10 +239,10 @@ class _VideoListScreenState extends State<VideoListScreen> {
                     ? null
                     : anime.episodes[resumeIndex >= 0 ? resumeIndex : 0];
                 final label = episode == null
-                    ? 'Episodes unavailable'
+                    ? 'الحلقات غير متاحة'
                     : resumeIndex >= 0
-                        ? 'Resume Episode ${episode.number}'
-                        : 'Play Episode ${episode.number}';
+                        ? 'استئناف الحلقة ${episode.number}'
+                        : 'تشغيل الحلقة ${episode.number}';
                 return FilledButton.icon(
                   onPressed: episode == null
                       ? null
@@ -308,7 +308,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
     final recentAnime = RecentAnime(
       id: anime.id,
       name: name,
-      currentEp: 'Episode ${episode.number}',
+      currentEp: 'الحلقة ${episode.number}',
       imageUrl: imageUrl,
       epUrl: episode.link,
       animeUrl: animeUrl,
@@ -339,7 +339,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
       await bookMarkManager.removeFromBookMarks(item);
       Get.snackbar(
         name,
-        'Removed from bookmark successfully!',
+        'تمت إزالة العنوان من الإشارات المرجعية بنجاح!',
         backgroundColor: Colors.black38,
         duration: const Duration(milliseconds: 1300),
         snackPosition: SnackPosition.BOTTOM,
@@ -348,7 +348,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
       await bookMarkManager.addToBookMarks(item);
       Get.snackbar(
         name,
-        'Added to bookmark successfully!',
+        'تمت إضافة العنوان إلى الإشارات المرجعية بنجاح!',
         backgroundColor: Colors.black38,
         duration: const Duration(milliseconds: 1300),
         snackPosition: SnackPosition.BOTTOM,
@@ -434,7 +434,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
           )
         : Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-            child: Text('Episodes coming soon',
+            child: Text('الحلقات قادمة قريبًا',
                 style: TakoTheme.darkTextTheme.titleSmall),
           );
   }
@@ -533,7 +533,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
                           children: [
                             Expanded(
                               child: Text(
-                                'Episode ${episode.number}',
+                                'الحلقة ${episode.number}',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TakoTheme.darkTextTheme.bodyMedium!
@@ -545,7 +545,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
                             ),
                             if (isCurrentEpisode) ...[
                               const SizedBox(width: 6),
-                              const Text('LAST PLAYED',
+                              const Text('آخر تشغيل',
                                   style: TextStyle(
                                       color: Color(0xFFA89BFF),
                                       fontSize: 12,
@@ -569,10 +569,10 @@ class _VideoListScreenState extends State<VideoListScreen> {
                         const SizedBox(height: 5),
                         Text(
                           progress == null
-                              ? 'Not watched'
+                              ? 'لم تُشاهد'
                               : isComplete
-                                  ? 'Completed'
-                                  : '$percentage% watched',
+                                  ? 'مكتملة'
+                                  : 'تمت مشاهدة $percentage%',
                           style: const TextStyle(
                             color: tkMutedText,
                             fontSize: 11,
@@ -607,7 +607,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Text(
-            'We could not load the episode list.',
+            'تعذر تحميل قائمة الحلقات.',
             style: TextStyle(
               color: Colors.white,
               fontSize: 20,
@@ -618,7 +618,7 @@ class _VideoListScreenState extends State<VideoListScreen> {
           OutlinedButton.icon(
             onPressed: _retryAnimeDetails,
             icon: const Icon(Icons.refresh_rounded),
-            label: const Text('Try again'),
+            label: const Text('حاول مجددًا'),
           ),
         ],
       ),

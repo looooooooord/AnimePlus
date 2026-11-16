@@ -67,14 +67,14 @@ class _GenreScreenState extends State<GenreScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'We could not load this page.',
+                              'تعذر تحميل هذه الصفحة.',
                               style: TakoTheme.darkTextTheme.displaySmall,
                             ),
                             const SizedBox(height: 12),
                             OutlinedButton.icon(
                               onPressed: _reloadPage,
                               icon: const Icon(Icons.refresh_rounded),
-                              label: const Text('Try again'),
+                              label: const Text('حاول مجددًا'),
                             ),
                           ],
                         ),
@@ -86,7 +86,7 @@ class _GenreScreenState extends State<GenreScreen> {
                       if (list.isEmpty) {
                         return const Center(
                           child: Text(
-                            'No more titles in this genre.',
+                            'لا توجد عناوين أخرى في هذا التصنيف.',
                             style: TextStyle(color: tkMutedText),
                           ),
                         );
@@ -178,7 +178,7 @@ class _GenreScreenState extends State<GenreScreen> {
                             Icon(
                               Icons.arrow_back_ios_new_rounded,
                             ),
-                            Text('Prev'),
+                            Text('السابق'),
                           ],
                         ),
                       ),
@@ -227,7 +227,7 @@ class _GenreScreenState extends State<GenreScreen> {
                           )),
                           child: Row(
                             children: const [
-                              Text('Next'),
+                              Text('التالي'),
                               Icon(
                                 Icons.arrow_forward_ios_rounded,
                               ),

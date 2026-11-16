@@ -5,7 +5,7 @@ class WebsiteErrorWidget extends StatelessWidget {
   const WebsiteErrorWidget({
     super.key,
     this.onRetry,
-    this.message = 'We could not load this right now.',
+    this.message = 'تعذر التحميل حاليًا.',
   });
 
   final VoidCallback? onRetry;
@@ -33,7 +33,7 @@ class WebsiteErrorWidget extends StatelessWidget {
             child: OutlinedButton.icon(
               onPressed: onRetry,
               icon: const Icon(Icons.refresh_rounded),
-              label: const Text('Try again'),
+              label: const Text('حاول مجددًا'),
             ),
           ),
       ],

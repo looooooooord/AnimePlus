@@ -33,7 +33,7 @@ class AnimeDrawer extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(
-                      'TakoPlay',
+                      'AnimePlus',
                       style: GoogleFonts.dmSans(
                         fontSize: 23,
                         fontWeight: FontWeight.w700,
@@ -94,11 +94,11 @@ class AnimeDrawer extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Your anime space',
+                        Text('مساحتك للأنمي',
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.w800)),
                         SizedBox(height: 3),
-                        Text('Browse, save, and keep watching.',
+                        Text('تصفح واحفظ وتابع المشاهدة.',
                             style: TextStyle(color: tkMutedText, fontSize: 12)),
                       ],
                     ),
@@ -109,18 +109,18 @@ class AnimeDrawer extends StatelessWidget {
             const SizedBox(height: 16),
             _DrawerItem(
               icon: Icons.tune_rounded,
-              label: 'Settings',
+              label: 'الإعدادات',
               onTap: () => Get.toNamed(Routes.settingsScreen),
             ),
             _DrawerItem(
               icon: Icons.info_outline_rounded,
-              label: 'About TakoPlay',
+              label: 'حول AnimePlus',
               onTap: () => Get.toNamed(Routes.aboutAppScreen),
             ),
             const Spacer(),
             Padding(
               padding: const EdgeInsets.all(24),
-              child: Text('TAKOPLAY  •  $version',
+              child: Text('أنميPLUS  •  $version',
                   style: TextStyle(
                       color: tkMutedText, fontSize: 10, letterSpacing: .8)),
             ),

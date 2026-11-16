@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tako_play/models/episode_watch_progress.dart';
+import 'package:anime_plus/models/episode_watch_progress.dart';
 
 void main() {
   test('progress serializes and clamps its percentage', () {

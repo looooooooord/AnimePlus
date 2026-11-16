@@ -149,8 +149,8 @@ class _MediaFetchScreenState extends State<MediaFetchScreen> {
                 Obx(
                   () => Text(
                     hasError.value
-                        ? 'Episode can\'t be fetched'
-                        : 'Getting your episode ready…',
+                        ? 'تعذر جلب الحلقة'
+                        : 'جارٍ تجهيز الحلقة…',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
@@ -160,7 +160,7 @@ class _MediaFetchScreenState extends State<MediaFetchScreen> {
                     child: Padding(
                       padding: EdgeInsets.only(top: 8),
                       child: Text(
-                        'Finding a stream and preparing playback',
+                        'جارٍ البحث عن البث وتجهيز التشغيل',
                         textAlign: TextAlign.center,
                         style: Theme.of(context)
                             .textTheme
@@ -186,7 +186,7 @@ class _MediaFetchScreenState extends State<MediaFetchScreen> {
                         ),
                         color: tkGradientBlue,
                         child: const Text(
-                          'Try Again',
+                          'حاول مرة أخرى',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,

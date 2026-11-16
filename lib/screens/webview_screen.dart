@@ -86,7 +86,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  TakoPlayWebView(
+                  AnimePlusWebView(
                     initialUrl: mediaUrls.first,
                     fallbackUrls: mediaUrls.skip(1).toList(growable: false),
                     referrerUrl: _episodeUrl,
@@ -113,9 +113,9 @@ class _WebViewScreenState extends State<WebViewScreen> {
                         alignment: Alignment.centerRight,
                         child: Semantics(
                           button: true,
-                          label: 'Toggle fullscreen orientation',
+                          label: 'تبديل اتجاه ملء الشاشة',
                           child: IconButton(
-                            tooltip: 'Toggle fullscreen orientation',
+                            tooltip: 'تبديل اتجاه ملء الشاشة',
                             onPressed: _toggleOrientation,
                             icon: const Icon(
                               Icons.zoom_out_map_outlined,
@@ -173,14 +173,14 @@ class _WebViewScreenState extends State<WebViewScreen> {
                     color: Colors.white70, size: 44),
                 const SizedBox(height: 14),
                 const Text(
-                  'This video link is unavailable.',
+                  'رابط الفيديو غير متاح.',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: Get.back,
-                  child: const Text('Go back'),
+                  child: const Text('رجوع'),
                 ),
               ],
             ),

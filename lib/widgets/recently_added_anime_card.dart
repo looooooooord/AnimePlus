@@ -89,7 +89,7 @@ class RecentlyAddedAnimeCard extends StatelessWidget {
                               border: Border.all(color: Colors.white24),
                             ),
                             child: const Text(
-                              'NEW',
+                              'جديد',
                               style: TextStyle(
                                 fontSize: 9,
                                 fontWeight: FontWeight.w900,
@@ -124,8 +124,8 @@ class RecentlyAddedAnimeCard extends StatelessWidget {
                 const SizedBox(height: 6),
                 Text(
                   anime.currentEp.isNotEmpty
-                      ? anime.currentEp.replaceFirst('EP', 'Episode')
-                      : 'New episode',
+                      ? anime.currentEp.replaceFirst('حلقة', 'الحلقة')
+                      : 'حلقة جديدة',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(

@@ -4,8 +4,8 @@ import 'package:cryptography/cryptography.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:tako_play/services/playback_service.dart';
-import 'package:tako_play/utils/constants.dart';
+import 'package:anime_plus/services/playback_service.dart';
+import 'package:anime_plus/utils/constants.dart';
 
 Future<String> _encryptedEmbed(String embedUrl, String pageKey) async {
   final nonce = List<int>.generate(12, (index) => index);

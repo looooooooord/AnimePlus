@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:tako_play/services/request_service.dart';
-import 'package:tako_play/utils/constants.dart';
+import 'package:anime_plus/services/request_service.dart';
+import 'package:anime_plus/utils/constants.dart';
 
 void main() {
   group('RequestService', () {

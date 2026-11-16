@@ -4,14 +4,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:tako_play/database/bookmark_database.dart';
-import 'package:tako_play/helpers/bookmark_manager.dart';
-import 'package:tako_play/helpers/update_manager.dart';
-import 'package:tako_play/models/anime.dart';
-import 'package:tako_play/models/bookmark.dart';
-import 'package:tako_play/screens/home_screen.dart';
-import 'package:tako_play/services/request_service.dart';
-import 'package:tako_play/utils/routes.dart';
+import 'package:anime_plus/database/bookmark_database.dart';
+import 'package:anime_plus/helpers/bookmark_manager.dart';
+import 'package:anime_plus/helpers/update_manager.dart';
+import 'package:anime_plus/models/anime.dart';
+import 'package:anime_plus/models/bookmark.dart';
+import 'package:anime_plus/screens/home_screen.dart';
+import 'package:anime_plus/services/request_service.dart';
+import 'package:anime_plus/utils/routes.dart';
 
 void main() {
   setUp(() => Get.testMode = true);

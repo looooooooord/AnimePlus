@@ -2,15 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 /// A user-driven WebView for an externally hosted player.
 ///
 /// It permits HTTPS redirects while the player is loading, then keeps later
 /// top-level navigation on the resolved player host. It intentionally does not
 /// alter the page DOM or synthesize player interactions.
-class TakoPlayWebView extends StatefulWidget {
-  const TakoPlayWebView({
+class AnimePlusWebView extends StatefulWidget {
+  const AnimePlusWebView({
     required this.initialUrl,
     required this.onLoadingChanged,
     this.fallbackUrls = const [],
@@ -26,10 +25,10 @@ class TakoPlayWebView extends StatefulWidget {
   final ValueChanged<WebViewController>? onControllerCreated;
 
   @override
-  State<TakoPlayWebView> createState() => _TakoPlayWebViewState();
+  State<AnimePlusWebView> createState() => _AnimePlusWebViewState();
 }
 
-class _TakoPlayWebViewState extends State<TakoPlayWebView> {
+class _AnimePlusWebViewState extends State<AnimePlusWebView> {
   late final WebViewController _webViewController;
   final Set<String> _trustedPlayerHosts = <String>{};
   late final List<Uri> _playerUris;
@@ -51,15 +50,7 @@ class _TakoPlayWebViewState extends State<TakoPlayWebView> {
     final initialUri = _playerUris.first;
     _preparePlayerLoad(initialUri);
 
-    final PlatformWebViewControllerCreationParams params;
-    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
-      params = WebKitWebViewControllerCreationParams(
-        allowsInlineMediaPlayback: true,
-        mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
-      );
-    } else {
-      params = const PlatformWebViewControllerCreationParams();
-    }
+    const params = PlatformWebViewControllerCreationParams();
 
     _webViewController = WebViewController.fromPlatformCreationParams(params)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)

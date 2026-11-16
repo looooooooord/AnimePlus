@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
-import 'package:tako_play/models/anime.dart';
-import 'package:tako_play/utils/routes.dart';
-import 'package:tako_play/widgets/anime_detail_header.dart';
+import 'package:anime_plus/models/anime.dart';
+import 'package:anime_plus/utils/routes.dart';
+import 'package:anime_plus/widgets/anime_detail_header.dart';
 
 void main() {
   setUp(() => Get.testMode = true);

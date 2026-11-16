@@ -4,17 +4,17 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tako_play/database/bookmark_database.dart';
-import 'package:tako_play/database/recent_watch_anime_database.dart';
-import 'package:tako_play/helpers/bookmark_manager.dart';
-import 'package:tako_play/helpers/network_manager.dart';
-import 'package:tako_play/helpers/recent_watch_manager.dart';
-import 'package:tako_play/helpers/update_manager.dart';
-import 'package:tako_play/helpers/webview_manager.dart';
-import 'package:tako_play/models/bookmark.dart';
-import 'package:tako_play/models/recent_anime.dart';
-import 'package:tako_play/screens/main_screen.dart';
-import 'package:tako_play/services/request_service.dart';
+import 'package:anime_plus/database/bookmark_database.dart';
+import 'package:anime_plus/database/recent_watch_anime_database.dart';
+import 'package:anime_plus/helpers/bookmark_manager.dart';
+import 'package:anime_plus/helpers/network_manager.dart';
+import 'package:anime_plus/helpers/recent_watch_manager.dart';
+import 'package:anime_plus/helpers/update_manager.dart';
+import 'package:anime_plus/helpers/webview_manager.dart';
+import 'package:anime_plus/models/bookmark.dart';
+import 'package:anime_plus/models/recent_anime.dart';
+import 'package:anime_plus/screens/main_screen.dart';
+import 'package:anime_plus/services/request_service.dart';
 
 void main() {
   setUp(() {

@@ -107,7 +107,7 @@ class AnimeService {
     final response = await _requestService.requestSearchIndexResponse();
     final decoded = jsonDecode(response.body);
     if (decoded is! List) {
-      throw const FormatException('The source search index is invalid.');
+      throw const FormatException('فهرس البحث في المصدر غير صالح.');
     }
     return decoded
         .whereType<Map>()
@@ -126,7 +126,7 @@ class AnimeService {
       final info = detailDoc.querySelector('.anime_info_body_bg');
       if (info == null) {
         throw StateError(
-            'The anime details were not found in the source page.');
+            'لم يتم العثور على تفاصيل الأنمي في صفحة المصدر.');
       }
 
       final genres = <Genre>[];
@@ -249,7 +249,7 @@ class AnimeService {
       }
     }
 
-    throw StateError('No playable video embed was found for this episode.');
+    throw StateError('لم يتم العثور على مشغل فيديو قابل للتشغيل لهذه الحلقة.');
   }
 
   /// Returns the first player offered on an episode page.

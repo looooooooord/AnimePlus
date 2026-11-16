@@ -72,7 +72,7 @@ class SearchedResultAnimeCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Text(
-                          isDub ? 'DUB' : 'SUB',
+                          isDub ? 'مدبلج' : 'مترجم',
                           style: const TextStyle(
                             fontSize: 9,
                             fontWeight: FontWeight.w800,

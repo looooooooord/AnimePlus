@@ -75,7 +75,7 @@ class AnimeDetailHeader extends StatelessWidget {
             borderRadius: BorderRadius.circular(9),
           ),
           child: Text(
-            anime.status.isNotEmpty ? anime.status : 'ANIME',
+            anime.status.isNotEmpty ? anime.status : 'أنمي',
             style: const TextStyle(
               color: tkCoral,
               fontSize: 10,
@@ -98,8 +98,8 @@ class AnimeDetailHeader extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           anime.releasedDate.isNotEmpty
-              ? 'Released ${anime.releasedDate}'
-              : 'Now streaming',
+              ? 'تاريخ الإصدار ${anime.releasedDate}'
+              : 'متاح للمشاهدة',
           style: const TextStyle(color: tkMutedText, fontSize: 12),
         ),
         if (genres.isNotEmpty) SizedBox(height: compact ? 12 : 10),

@@ -35,7 +35,7 @@ class _GenreSelectionScreenState extends State<GenreSelectionScreen>
   @override
   Widget build(BuildContext context) {
     return TakoScaffoldWithBackButton(
-      appBarTitle: 'Genres',
+      appBarTitle: 'التصنيفات',
       body: ListView.builder(
           shrinkWrap: true,
           itemCount: genreList.length,

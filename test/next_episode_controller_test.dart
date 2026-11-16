@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tako_play/helpers/next_episode_controller.dart';
-import 'package:tako_play/models/anime.dart';
-import 'package:tako_play/models/playback_context.dart';
-import 'package:tako_play/services/ending_timing_service.dart';
-import 'package:tako_play/services/playback_service.dart';
-import 'package:tako_play/widgets/next_episode_overlay.dart';
+import 'package:anime_plus/helpers/next_episode_controller.dart';
+import 'package:anime_plus/models/anime.dart';
+import 'package:anime_plus/models/playback_context.dart';
+import 'package:anime_plus/services/ending_timing_service.dart';
+import 'package:anime_plus/services/playback_service.dart';
+import 'package:anime_plus/widgets/next_episode_overlay.dart';
 
 PlaybackContext contextAt(int index) => PlaybackContext(
       id: 'show',

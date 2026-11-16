@@ -3,10 +3,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:tako_play/models/anime.dart';
-import 'package:tako_play/screens/genre_screen.dart';
-import 'package:tako_play/services/request_service.dart';
-import 'package:tako_play/widgets/searched_result_anime_card.dart';
+import 'package:anime_plus/models/anime.dart';
+import 'package:anime_plus/screens/genre_screen.dart';
+import 'package:anime_plus/services/request_service.dart';
+import 'package:anime_plus/widgets/searched_result_anime_card.dart';
 
 void main() {
   setUp(() => Get.testMode = true);

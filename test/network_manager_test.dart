@@ -4,7 +4,7 @@ import 'package:connectivity_plus_platform_interface/connectivity_plus_platform_
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:tako_play/helpers/network_manager.dart';
+import 'package:anime_plus/helpers/network_manager.dart';
 
 void main() {
   test('does not probe the source when every interface is offline', () async {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
-import 'package:tako_play/utils/routes.dart';
-import 'package:tako_play/widgets/anime_drawer.dart';
+import 'package:anime_plus/utils/routes.dart';
+import 'package:anime_plus/widgets/anime_drawer.dart';
 
 void main() {
   setUp(() => Get.testMode = true);
@@ -26,11 +26,11 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('TakoPlay'), findsOneWidget);
+    expect(find.text('AnimePlus'), findsOneWidget);
     expect(find.text('Your anime space'), findsOneWidget);
     expect(find.text('Genres'), findsNothing);
     expect(find.text('Settings'), findsOneWidget);
-    expect(find.text('About TakoPlay'), findsOneWidget);
+    expect(find.text('حول AnimePlus'), findsOneWidget);
 
     await tester.tap(find.text('Settings'));
     await tester.pumpAndSettle();

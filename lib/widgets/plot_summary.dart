@@ -23,7 +23,7 @@ class PlotSummary extends StatelessWidget {
         textColor: Colors.white,
         iconColor: tkCoral,
         collapsedIconColor: tkMutedText,
-        title: const Text('About this title',
+        title: const Text('حول هذا العنوان',
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800)),
         childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
         children: [

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tako_play/helpers/webview_manager.dart';
+import 'package:anime_plus/helpers/webview_manager.dart';
 
 void main() {
   test('web view preference loads and persists', () async {

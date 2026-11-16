@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tako_play/models/github.dart';
+import 'package:anime_plus/models/github.dart';
 
 void main() {
   test('recognizes an APK by asset name without a file extension in the URL',
